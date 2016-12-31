@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    platform: hsqldb
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
