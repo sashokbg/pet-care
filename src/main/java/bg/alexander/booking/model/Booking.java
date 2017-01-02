@@ -1,12 +1,10 @@
 package bg.alexander.booking.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "bookings")
 public class Booking {
     @Id
     @GeneratedValue
@@ -19,6 +17,9 @@ public class Booking {
     private LocalDateTime from;
     @Column(name = "until_time")
     private LocalDateTime until;
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
 
     public Long getId() {
         return id;
@@ -58,5 +59,13 @@ public class Booking {
 
     public void setUntil(LocalDateTime until) {
         this.until = until;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 }
