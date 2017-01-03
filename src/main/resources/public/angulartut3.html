@@ -1,0 +1,47 @@
+<!doctype html>
+<html ng-app="app3"> 
+  <head>
+    <title>Angular Tutorial 3</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="js/exam3.js"></script>
+  </head>
+  <body>
+    <div ng-controller="gListCtrl">
+      <h3 class="ListTitle">{{groceries.length}} groceries to Get</h3>
+      <ol style="margin: 0 0 -15px );">
+        <li>{{groceries[0].item}}</li> 
+      </ol>
+
+      <ol start="2">
+        <li ng-repeat="grocery in groceries" ng-if="$index > 0">
+          {{grocery.item}} {{$index}}
+        </li> 
+      </ol>
+      <table>
+
+	<tr ng-repeat-start="grocery in groceries">
+	  <td>
+	    {{grocery.item}}
+	  </td>
+	</tr>
+	
+	<tr ng-repeat-end="grocery in groceries">
+	  <td>
+	    {{grocery.purchased}}
+	  </td>
+	</tr>
+      </table>
+
+      <label>Change 1st Item : </label>
+      <input ng-model="groceries[0].item" />
+
+      <h3>Grocery List</h3>
+      <div ng-include="'unorderGroceries.html'"></div> 
+	
+      <input type="checkbox" ng-model="showList" />
+      Show Unordered List
+
+      <ng-include src="getList()"></ng-include>
+    </div>
+  </body>
+</html>
