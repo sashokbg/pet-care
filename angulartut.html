@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app="app1" ng-init="people = [{fName: 'Alex', lName: 'Kirilov'},{fName: 'Gosho', lName: 'Petrov'},{fName: 'Ivan', lName: 'Zagorchev'}]">
+  <head>
+    <title>My Angular App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="js/exam1.js"></script>
+  </head>
+  <body>
+  <div ng-controller="ctrl1">
+    <span>Values:</span>
+    <input type="text" ng-model="first" />
+    <input type="text" ng-model="second" />
+
+    <button ng-click="updateValue()">Sum</button>
+    <br />
+
+    {{calculation}}
+
+    <p>5+5 is {{5+5}}</p>
+    
+    <p>Your first value is {{first}}</p>
+    <p>Your second value is {{second}}</p>
+    <p>Your second value is <span data-ng-bind="second"></span></p>
+
+    <ul>
+      <li ng-repeat="person in people">
+        {{'First Name: '+person.fName + ', Last Name: '+person.lName}}
+      </li>
+    </ul>
+
+    
+
+  </div>
+  </body>
+</html>
