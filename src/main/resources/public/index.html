@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html ng-app="bookings">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="js/bookings.js"></script>
+    </head>
+    <body>
+    <div ng-controller="listBookings">
+        <ul>
+            <li ng-repeat="booking in bookings">
+                #{{booking.id}} booking code: {{booking.bookingCode}}
+            </li>
+        </ul>
+    </div>
+    </body>
+</html>
